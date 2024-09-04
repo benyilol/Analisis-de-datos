@@ -21,3 +21,8 @@ pbmc = anndata.read_loom(
 https://anndata.readthedocs.io/en/latest/generated/anndata.read_loom.html#anndata.read_loom
 
 
+//importar UMAP
+https://pypi.org/project/umap-learn/
+
+//montar el dataset en drive
+https://stackoverflow.com/questions/50525568/how-to-upload-dataset-in-google-colaboratory
