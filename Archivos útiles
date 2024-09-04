@@ -3,3 +3,37 @@ https://anndata.readthedocs.io/en/latest/tutorials/index.html (tutorial de andat
 https://chanzuckerberg.github.io/cellxgene-census/cellxgene_census_docsite_quick_start.html#installation (instalación y pequeño tutorial)
 
 https://chanzuckerberg.github.io/cellxgene-census/examples.html  (census ejemplos python)
+
+Importas la libreria cellxgene_census, anndata, drive y scanpy
+Primeramente descargas el archivo h5ad y lo llevas a google drive.
+
+*| Desde el google drive se importa el archivo de la siguiente manera:
+# Importar desde mi drive
+adata = sc.read('/content/drive/MyDrive/celulas.h5ad')
+
+*| Pára checar la vista del cluster son los siguientes comandos
+
+# Vista del cluster
+sc.pp.pca(adata)
+sc.pl.pca(adata)
+
+EJEMPLO DE CÓDIGO
+import scanpy as sc
+import numpy as np
+import umap
+
+# Importar desde mi drive
+adata = sc.read('/content/drive/MyDrive/celulas.h5ad')
+
+# Vista del cluster
+sc.umap.pca(adata)
+sc.umap.pca(adata)
+
+# Display the structure of the data
+print(adata)
+
+# Access the expression matrix
+expression_matrix = adata.X
+
+# Access metadata
+metadata = adata.obs
