@@ -40,5 +40,5 @@ sc.pp.pca(adata, n_comps=50)
 sc.pp.neighbors(adata, n_neighbors=10, n_pcs=40)
 sc.tl.umap(adata)
 
-# Graficar UMAP
-sc.pl.umap(adata, color=['CST3', 'NKG7'])
+# Graficar UMAP con los identificadores de Ensembl
+sc.pl.umap(adata, color=['ENSG00000187720', 'ENSG00000070159'])
