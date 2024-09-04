@@ -6,3 +6,13 @@ from scipy.sparse import csr_matrix
 print(ad.__version__)
 //importa y muestra la vesion de scipy que se esta instalando
 
+pbmc = anndata.read_loom(
+    "pbmc.loom",
+    sparse=True,
+    X_name="lognorm",
+    obs_names="cell_names",
+    var_names="gene_names",
+    obsm_mapping={
+        "X_umap": ["umap_1", "umap_2"]
+    }
+)
