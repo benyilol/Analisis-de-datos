@@ -1,0 +1,30 @@
+import matplotlib.pyplot as plt
+import seaborn as sns
+from scipy.spatial import ConvexHull
+from matplotlib.patches import Polygon
+from google.colab import drive
+import scanpy as sc 
+
+# Ubica y carga el dataset cargado en Google Drive
+drive.mount('/content/drive')
+adata = sc.read('/content/drive/MyDrive/celulas.h5ad')
+
+# Obtiene las coordenadas UMAP y los IDs de los clusters
+umap_cor = adata.obsm['X_UMAP']
+cluster_id = adata.obs['cluster_id']
+
+# Grafica los datos
+plt.figure(figsize=(10, 10))
+sns.scatterplot(x=umap_cor[:, 0], y = umap_cor[:, 1], hue = cluster_id, palette='Set2', s=30)
+
+# Aplica Convex Hull para cada cluster y grafica el contorno
+for cluster in np.unique(cluster_id):
+    points = umap_cor[cluster_id == cluster]
+    if len(points) >= 3:  # ConvexHull requiere al menos 3 puntos
+        hull = ConvexHull(points)
+        hull_points = points[hull.vertices]
+        polygon = Polygon(hull_points, fill=True, alpha=0.2)
+        plt.gca().add_patch(polygon)
+
+plt.title('Convex Hull para cada cluster')
+plt.show()
