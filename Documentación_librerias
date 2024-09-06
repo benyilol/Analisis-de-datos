@@ -1,0 +1,55 @@
+1. Matplotlib (matplotlib.pyplot)
+matplotlib es una biblioteca fundamental para la creación de gráficos en Python. Aquí usamos específicamente pyplot, que contiene funciones para hacer gráficos básicos.
+
+Documentación oficial: Matplotlib Pyplot
+Comandos útiles:
+
+plt.figure(figsize=(ancho, alto)): Crea una nueva figura con el tamaño especificado.
+plt.scatter(x, y): Crea un gráfico de dispersión con los valores de x e y.
+plt.title('título'): Agrega un título a la gráfica.
+plt.show(): Muestra la gráfica creada.
+  
+2. Seaborn (sns)
+seaborn es una biblioteca que facilita la creación de gráficos atractivos y estadísticos, y se basa en matplotlib.
+
+Documentación oficial: Seaborn
+Comandos útiles:
+
+sns.scatterplot(x, y, hue, palette, s): Crea un gráfico de dispersión donde:
+x y y: son los datos para las coordenadas.
+hue: permite colorear los puntos según una variable (en este caso, los clusters).
+palette: define los colores.
+s: especifica el tamaño de los puntos.
+  
+3. SciPy (scipy.spatial.ConvexHull)
+scipy es una biblioteca científica para Python. La parte que nos interesa es ConvexHull, que sirve para encontrar el contorno más pequeño que puede envolver un conjunto de puntos.
+
+Documentación oficial: ConvexHull
+Comandos útiles:
+
+ConvexHull(points): Encuentra el convex hull para un conjunto de puntos.
+hull.vertices: Obtiene los índices de los puntos que forman el contorno del hull.
+  
+4. Matplotlib Patches (matplotlib.patches.Polygon)
+Esta parte de matplotlib se usa para crear formas geométricas (como polígonos) en las gráficas.
+
+Documentación oficial: Polygon
+Comandos útiles:
+
+Polygon(hull_points, fill=True, alpha=0.2): Crea un polígono a partir de los puntos de contorno y lo rellena con transparencia (controlada por alpha).
+5. Scanpy (scanpy)
+scanpy es una biblioteca diseñada específicamente para el análisis de datos de células individuales, como los que tienes en el archivo .h5ad.
+
+Documentación oficial: Scanpy
+Comandos útiles:
+
+sc.read(filename): Lee un archivo en formato .h5ad que contiene datos de células.
+adata.obsm['X_UMAP']: Obtiene las coordenadas UMAP de los datos cargados.
+adata.obs['cluster_id']: Obtiene las etiquetas de los clusters para cada célula.
+6. Google Colab (drive.mount)
+Este comando de Google Colab permite montar tu Google Drive para acceder a los archivos almacenados en él.
+
+Documentación oficial: Google Colab Drive
+Comando útil:
+
+drive.mount('/path'): Monta Google Drive en la ruta especificada para acceder a los archivos.
